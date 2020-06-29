@@ -98,6 +98,14 @@ and save to `font.cfg`.
 If zero, loading a song when another one is playing will start playing the new
 song after it is loaded.
 
+#### Startup behavior
+
+    [General]
+    bypass_splash=0
+
+By default Schism Tracker starts up to the about page before continuing.
+When `bypass_splash` is set to 1, Schism Tracker will skip this and startup directly to the load module page.
+
 #### File browser
 
     [Directories]
