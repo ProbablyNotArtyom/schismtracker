@@ -242,7 +242,15 @@ void cfg_load(void)
 	cfg_load_palette(&cfg);
 
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+	/* Extended flags */
+	
+    if (cfg_get_number(&cfg, "General", "bypass_splash", 0))
+		status.flags_extended |= BYPASS_SPLASH;
+	else
+		status.flags_extended &= ~BYPASS_SPLASH;
 
+	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+    
 	cfg_free(&cfg);
 }
 

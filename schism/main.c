@@ -1145,7 +1145,11 @@ int main(int argc, char **argv)
 		}
 		free(initial_song);
 	} else {
-		set_page(PAGE_ABOUT);
+		if (status.flags_extended & BYPASS_SPLASH) {
+			set_page(PAGE_LOAD_MODULE);
+		} else {
+			set_page(PAGE_ABOUT);
+		}
 	}
 
 #if HAVE_NICE
