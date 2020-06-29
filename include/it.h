@@ -206,7 +206,6 @@ enum {
 };
 #define MOUSE_MAX_STATE MOUSE_CYCLE_STATE
 
-
 struct it_palette {
 	char name[21];
 	uint8_t colors[16][3];
@@ -464,4 +463,3 @@ void memused_get_pattern_saved(unsigned int *a, unsigned int *b); /* wtf */
 /* --------------------------------------------------------------------- */
 
 #endif /* ! IT_H */
-

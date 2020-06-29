@@ -243,14 +243,14 @@ void cfg_load(void)
 
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 	/* Extended flags */
-	
+
     if (cfg_get_number(&cfg, "General", "bypass_splash", 0))
 		status.flags_extended |= BYPASS_SPLASH;
 	else
 		status.flags_extended &= ~BYPASS_SPLASH;
 
 	/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-    
+
 	cfg_free(&cfg);
 }
 
@@ -359,4 +359,3 @@ void cfg_atexit_save(void)
 	cfg_write(&cfg);
 	cfg_free(&cfg);
 }
-

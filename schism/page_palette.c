@@ -66,6 +66,7 @@ static void palette_draw_const(void)
 	draw_box(55, 26, 77, 47, BOX_THICK | BOX_INNER | BOX_INSET);
 	draw_fill_chars(57, 14, 61, 16, 14);
 	draw_fill_chars(57, 19, 61, 21, 15);
+
 }
 
 /* --------------------------------------------------------------------- */
@@ -81,6 +82,12 @@ static void update_thumbbars(void)
 		widgets_palette[3 * n + 1].d.thumbbar.value = current_palette[n][1];
 		widgets_palette[3 * n + 2].d.thumbbar.value = current_palette[n][2];
 	}
+}
+
+static void save_palette_now(void)
+{
+	status_text_flash("Configuration saved");
+	cfg_save();
 }
 
 /* --------------------------------------------------------------------- */
@@ -285,7 +292,7 @@ void palette_load_page(struct page *page)
 	page->title = "Palette Configuration (Ctrl-F12)";
 	page->draw_const = palette_draw_const;
 	page->handle_key = palette_list_handle_key;
-	page->total_widgets = 49;
+	page->total_widgets = 50;
 	page->widgets = widgets_palette;
 	page->help_index = HELP_GLOBAL;
 
@@ -314,5 +321,6 @@ void palette_load_page(struct page *page)
 	widgets_palette[48].y = 27;
 	widgets_palette[48].width = 20;
 	widgets_palette[48].height = 19;
-}
 
+	create_button(widgets_palette + 49, 28, 48, 14, 48, 0, 48, 0, 0, save_palette_now, "Save palette", 2);
+}
